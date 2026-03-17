@@ -1,5 +1,5 @@
 {
-  "name": "word-counter",
+  "name": "devops68-word-counter",
   "version": "1.0.0",
   "description": "API to count words and characters",
   "main": "index.js",
