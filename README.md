@@ -1,23 +1,67 @@
-# Word Counter API
+## 1. Clone โปรเจกต์จาก GitHub
 
-Count words and characters in text.
+เริ่มจาก clone โปรเจกต์มาก่อน
 
-## Endpoint
-
-### GET `/count`
-
-**Parameters:**
-- `text` (required): Text to analyze
-
-**Example Request:**
 ```
-http://localhost:3008/count?text=Hello%20World
+git clone https://github.com/waonpimol/devops68-word-counter.git
+cd devops68-word-counter
 ```
 
-**Example Response:**
-```json
+## 2. ตั้งค่า AWS
+
+ตั้งค่า AWS credentials ด้วยคำสั่ง
+
+```
+aws configure
+```
+
+จากนั้นใส่
+
+* AWS Access Key
+* AWS Secret Key
+* Region (เช่น ap-southeast-1)
+
+## 3. เริ่มต้น Terraform
+
+รันคำสั่งนี้เพื่อให้ Terraform โหลด provider
+
+```
+terraform init
+```
+
+## 4. ตรวจสอบสิ่งที่จะถูกสร้าง
+
+```
+terraform plan
+```
+
+## 5. สร้าง Infrastructure
+
+```
+terraform apply
+```
+
+พิมพ์
+
+```
+yes
+```
+
+Terraform จะสร้าง EC2 และ deploy แอปให้อัตโนมัติ
+
+## 6. ทดสอบ API
+
+ใช้ Public IP ของ EC2
+
+```
+http://PUBLIC_IP:3008/count?text=hello world
+```
+
+ถ้าใช้งานได้จะได้ผลลัพธ์ประมาณนี้
+
+```
 {
-  "text": "Hello World",
+  "text": "hello world",
   "words": 2,
   "characters": 11,
   "charactersNoSpace": 10
